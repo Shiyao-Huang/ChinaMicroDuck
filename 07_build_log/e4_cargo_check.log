@@ -1,0 +1,27 @@
+# E4 Rust 运行时交叉编译 · 证据摘录
+# 日期: 2026-09-02 · cargo 1.95.0 (stable-aarch64-apple-darwin)
+
+# 试验 1: cargo check --workspace --target aarch64-unknown-linux-gnu
+# 依赖全部解析下载完成、编译推进至 linux 原生 -sys crate：
+error: failed to run custom build command for `gstreamer-sys v0.24.5`
+  cargo:warning=pkg-config has not been configured to support cross-compilation.
+  Install a sysroot for the target platform and configure it via
+  PKG_CONFIG_SYSROOT_DIR and PKG_CONFIG_PATH, or install a cross-compiling
+  wrapper for pkg-config...
+# → 结论：macOS 裸交叉到 aarch64 Linux 卡在 GStreamer/pkg-config 目标 sysroot
+#   （后续还会有 libudev-sys 同类）。这不是代码问题，是构建环境问题。
+#   官方路径 = GitHub Actions board job（Linux 容器 + aarch64 交叉工具链）。
+
+# 试验 2: cargo check --workspace（host macOS）
+# mediad 的 GStreamer 管线 target_os="linux" 门控，Mac host 构建跳过 linux 专属部分
+# （结果见下方补充——host check 输出）
+
+# 上机部署路径（Radxa Zero 3W 到手后）：
+#   A) 板上原生构建（aarch64 Armbian + apt 装 libudev/gstreamer dev）—— 最稳
+#   B) GitHub Actions 板构建产物（官方 CI board job 产 aarch64 release）
+#   C) Docker cross / zigbuild + 目标 sysroot —— 进阶
+
+# 试验 2 实测结果（追加）：
+#   Checking updater v0.10.0 (..../microduck/updater)
+#   Finished `dev` profile [unoptimized + debuginfo] target(s) in 1m 13s
+#   HOST_EXIT=0  ← host macOS 全工作区 check 通过

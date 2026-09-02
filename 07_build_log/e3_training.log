@@ -1,0 +1,23 @@
+# E3 Apple Silicon 训练闭环 · 证据摘录
+# 日期: 2026-09-02 · 05_sim/microduck-lab-apple/microduck_local
+
+# 1) 契约测试
+391 passed, 1 skipped, 24 warnings in 126.01s (0:02:06)
+
+# 2) 训练（500k 步冒烟）
+| n_updates            | 610        |
+| policy_gradient_loss | -0.0373    |
+| std                  | 0.456      |
+| value_loss           | 77.6       |
+saved .../runs/e3-verify/model.zip + vecnormalize.pkl
+
+# 3) 导出
+exported runs/e3-verify/policy.onnx (obs[1,61] -> actions[1,14], normalizer baked)
+-rw-------  1 copizzah staff  793935  policy.onnx   ← 与官方策略同尺寸量级
+
+# 4) 闭环互换：自训 ONNX 交给官方 infer_policy.py --new-cmd-obs
+Loading walking policy from: .../runs/e3-verify/policy.onnx
+Walking policy input: obs, shape: [1, 61]
+Walking policy output: actions, shape: [1, 14]
+Observation size: 61 (expected: 61)
+# 稳态: trunk_z≈122mm（自习得的微蹲姿态），50Hz 推理正常

@@ -1,0 +1,22 @@
+# E1 官方行走策略本机实跑 · 证据摘录
+# 命令: cd 01_official/microduck_rl && 05_sim/.venv/bin/mjpython scripts/infer_policy.py \
+#        --walking ../../01_official/microduck-policies/alpha_walking.onnx --new-cmd-obs --debug
+# 日期: 2026-09-02 · 环境: macOS arm64 · mujoco 3.12.0 / onnxruntime 1.29.0 / bam 1.0.2
+
+Loading MuJoCo model from: src/mjlab_microduck/robot/microduck/scene.xml
+Current limit: 1.75 A -> torque limit +/-0.6405 Nm (kt=0.3660)
+Loading walking policy from: ../../01_official/microduck-policies/alpha_walking.onnx
+Walking policy input: obs, shape: [1, 61]
+Walking policy output: actions, shape: [1, 14]
+Observation size: 61 (expected: 61)
+Control frequency: 50 Hz (decimation: 4)
+
+# 稳态运行（Step 900–1450 采样）：
+#   trunk_z = 116.4 mm 恒定；quaternion ≈ [1.0000, -0.0022, 0.0035, -0.0009]
+#   fwd/lat/yaw achieved = cmd = 0（零指令零速度，站得住）
+#   Action min/max ≈ [-0.125, +0.137]
+
+# 踩坑记录（复现必读）：
+# 1) ModuleNotFoundError: bam -> uv pip install better-actuator-models
+# 2) RuntimeError: launch_passive requires mjpython on macOS -> 用 .venv/bin/mjpython
+# 3) INVALID_ARGUMENT Got 51 Expected 61 -> 官方 Hub 策略是 61 维新契约，必须 --new-cmd-obs
