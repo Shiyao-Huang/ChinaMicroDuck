@@ -1008,7 +1008,7 @@ def test_only_the_one_sided_recipes_opt_out_of_the_mirror_prior():
     imitates a clip) has to be listed here — the default is True and silence
     would train it under a wrong prior."""
     asymmetric = {b.id for b in BEHAVIORS.values() if not b.symmetric}
-    assert asymmetric == {"one_leg", "imitate"}
+    assert asymmetric == {"one_leg", "imitate", "nod"}
     # spin stays mirror-safe: the direction COMMAND rides the wz slot, and
     # the mirror map negates that slot and the gyro together, so a mirrored
     # episode is just the opposite commanded direction. The rest are sagittal
