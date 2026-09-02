@@ -569,9 +569,13 @@ def build_env(behavior_id: str, env_overrides: dict[str, str], seed: int):
     # (what the lab's preview envs use). Set before the env is constructed —
     # BehaviorEnv reads MICRODUCK_EPISODE_S in __init__.
     os.environ.update(env_overrides)
-    return BehaviorEnv(behavior_id, obs_noise=False, domain_rand=False,
-                       action_delay=False, random_yaw=False, seed=seed,
-                       spawn_overrides=dict(env_overrides))
+    cls = BehaviorEnv
+    if os.environ.get("DANCE") == "1" or "DANCE_BPM" in os.environ:
+        from .behaviors.dance_env import DanceEnv
+        cls = DanceEnv   # dance policies balance on the beat — no DJ, no balance
+    return cls(behavior_id, obs_noise=False, domain_rand=False,
+               action_delay=False, random_yaw=False, seed=seed,
+               spawn_overrides=dict(env_overrides))
 
 
 def behavior_from_policy(policy: str) -> str | None:

@@ -74,6 +74,22 @@ def _dip_park_pen(env) -> float:
     return -float(max(0.0, abs(hp) - 0.9)) * 2.0
 
 
+def _stand_tall(env) -> float:
+    """v6b 教训：鸭学会深蹲晃头（trunk_z 0.094 vs 站立 0.120），因为 upright
+    只查重力垂直、legs_planted 只查脚落地——蹲着全满足。站高硬奖励。"""
+    z = float(env._trunk_xpos[2])
+    err = z - 0.115
+    return float(np.exp(-(err * err) / 0.02 ** 2))
+
+
+def _legs_home(env) -> float:
+    """双腿回站立姿态（hip_pitch 折叠 = 蹲）。对两条腿的 hip/knee/ankle
+    与 DEFAULT_POSE 偏差求高斯。"""
+    d = env._joint_pos_rel()[C.LEG_JOINT_IDS]
+    ss = float((d * d).sum())
+    return float(np.exp(-ss / 0.35 ** 2))
+
+
 def _bob_with_beat(env) -> float:
     """身体律动：躯干 z 在节点处有小幅弹性起伏（卡点不只靠头）。
     用躯干线速度 z 与拍相位的相关性——节点下压瞬间 bz<0（下沉）。"""
@@ -117,6 +133,8 @@ _register(Behavior(
                    lambda env: _both_feet_down(env)),
         RewardTerm("stay_home", "Penalty for wandering", 1.2, _stay_home_pen, is_penalty=True),
         RewardTerm("calm_body", "Penalty for thrash", 1.0, _still_body_pen, is_penalty=True),
+        RewardTerm("stand_tall", "Points for standing at full height (no crouching)", 2.5, _stand_tall),
+        RewardTerm("legs_home", "Points for legs at standing pose, not folded", 1.5, _legs_home),
         RewardTerm("dip_park", "Penalty for parking head pitch on its limit", 1.5,
                    _dip_park_pen, is_penalty=False),
         RewardTerm("smooth_moves", "Light smoothness — grooving is motion", 0.6,
