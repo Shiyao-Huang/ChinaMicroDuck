@@ -33,6 +33,35 @@
 
 \section{方案总对比}
 
+\section{可行性复盘（2026-09-02 第二轮，四轴打分）}
+
+\begin{longtable}{L{3.6cm}L{2.6cm}L{2.6cm}L{2.6cm}L{2.6cm}}
+\toprule
+\textbf{四轴评分（5 分制）} & \textbf{A 忠实复刻} & \textbf{B S288} & \textbf{C OpenDuckMini} & \textbf{D 极简 25cm} \\
+\midrule
+技术可行性 & 3.5 & 2 & 4.5 & 2.5 \\
+供应链可行性 & 4 & 2 & 5 & 4 \\
+成本可行性 & 3.5 & 1.5 & 4.5 & 4 \\
+时间可行性 & 3 & 2 & 5 & 2.5 \\
+\midrule
+\textbf{总分（20）} & \textbf{14} & \bad{7.5} & \good{\textbf{19}} & 13 \\
+\bottomrule
+\end{longtable}
+
+\noindent\textbf{复盘要点}（详表见 \texttt{06\_bom/四方案可行性复盘.md}）：
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{A（14）}：技术三扣分——imu\_to\_dxl 首版返工率、STL 无公差需 20--40 处手工修整、走线零文档；
+供应链单点是 XL330 供货节奏；200 台单台 $\approx$¥2,300 的前提是 XL330 批量价 $\le$¥110（待智能佳谈判验证）。
+\item \textbf{C（19）}：唯一带完整工程文档（装配/打印/接线/舵机配置 + 中文教程）；
+STS3215 三现货源 + 厂家直购（飞特官网）；\good{首台 2--3 周，5 台 $\approx$¥1.7--2.1 万已低于官方价}。
+\item \textbf{D（13）}：STS3215 截面积超 XL330 约 90\%——不是挖腔是重设计 15 件；
+整机增至 $\sim$1.3kg 级需全量重校；定位改为 C 跑通后的二期项目，非并行选项。
+\item \textbf{B（7.5）}：维持否决；20g 级国产空档经两轮扫描确认无解（幻尔/华馨京/微雪最小档均 45g+）。
+\end{itemize}
+
+\noindent\textbf{执行序}：C 方案 5 台立即启动 $\to$ 并行与智能佳谈 XL330 批量价 $\to$
+二期决策：XL330 批量 $\le$¥110 则 A 方案 200 台；只要 25cm 则 D；都不做则 C 放量（¥1,400--1,700/台）。
+
 \begin{longtable}{L{2.6cm}L{3.4cm}L{3.4cm}L{3.4cm}L{3.2cm}}
 \toprule
  & \textbf{A · 忠实复刻} & \textbf{B · S288 升级} & \textbf{C · Open Duck Mini} & \textbf{D · 极简原尺寸} \\
