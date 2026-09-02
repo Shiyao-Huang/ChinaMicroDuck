@@ -48,7 +48,7 @@ def _beat_hit(env) -> float:
     """节点命中：head_pitch 在 pulse 窗口内跟下压（宽高斯，窗口本身就是奖励门）。"""
     _, pulse_t, _, _ = _beat_terms(env)
     if pulse_t >= 0.0:
-        return 0.15  # 非节点：不奖不罚的小底薪，防止全程压头躺赢
+        return 0.0  # 窗口外零分（v4教训：底薪=奖励不压头）
     actual = float(env._joint_pos_rel()[6])    # head_pitch
     err = actual - pulse_t                     # 目标是负值（下压）
     return float(np.exp(-(err * err) / 0.3 ** 2))
@@ -62,6 +62,13 @@ def _beat_hit_strong(env) -> float:
     actual = float(env._joint_pos_rel()[6])
     err = actual - pulse_t
     return float(np.exp(-(err * err) / 0.25 ** 2))
+
+
+def _dip_park_pen(env) -> float:
+    """v4 教训：策略把 head_pitch 压在 +1.22 rad 限位躺赢（官方 playbook
+    'Joints parking on hard limits' 条目）。qpos 侧限位接近惩罚。"""
+    hp = float(env._joint_pos_rel()[6])
+    return -float(max(0.0, abs(hp) - 0.9)) * 2.0
 
 
 def _bob_with_beat(env) -> float:
@@ -107,6 +114,8 @@ _register(Behavior(
                    lambda env: _both_feet_down(env)),
         RewardTerm("stay_home", "Penalty for wandering", 1.2, _stay_home_pen, is_penalty=True),
         RewardTerm("calm_body", "Penalty for thrash", 1.0, _still_body_pen, is_penalty=True),
+        RewardTerm("dip_park", "Penalty for parking head pitch on its limit", 1.5,
+                   _dip_park_pen, is_penalty=False),
         RewardTerm("smooth_moves", "Light smoothness — grooving is motion", 0.6,
                    _action_rate_pen, is_penalty=True),
     ),
