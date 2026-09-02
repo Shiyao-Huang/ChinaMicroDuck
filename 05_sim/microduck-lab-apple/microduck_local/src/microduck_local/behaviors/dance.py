@@ -51,7 +51,7 @@ def _beat_hit(env) -> float:
         return 0.15  # 非节点：不奖不罚的小底薪，防止全程压头躺赢
     actual = float(env._joint_pos_rel()[6])    # head_pitch
     err = actual - pulse_t                     # 目标是负值（下压）
-    return float(np.exp(-(err * err) / 0.2 ** 2))
+    return float(np.exp(-(err * err) / 0.3 ** 2))
 
 
 def _beat_hit_strong(env) -> float:
@@ -61,7 +61,7 @@ def _beat_hit_strong(env) -> float:
         return 0.0
     actual = float(env._joint_pos_rel()[6])
     err = actual - pulse_t
-    return float(np.exp(-(err * err) / 0.15 ** 2))
+    return float(np.exp(-(err * err) / 0.25 ** 2))
 
 
 def _bob_with_beat(env) -> float:
@@ -97,9 +97,9 @@ _register(Behavior(
     ),
     keywords=("dance", "卡点", "beat", "music", "disco", "freestyle"),
     terms=(
-        RewardTerm("swing_tight", "Big points for neck matching the beat sine", 3.0, _swing_track),
+        RewardTerm("swing_tight", "Big points for neck matching the beat sine", 2.5, _swing_track),
         RewardTerm("swing_wide", "Wide layer so exploration finds the groove", 1.2, _swing_track_wide),
-        RewardTerm("beat_hit", "Points for dipping the head inside the beat pulse", 2.0, _beat_hit),
+        RewardTerm("beat_hit", "Points for dipping the head inside the beat pulse", 3.0, _beat_hit),
         RewardTerm("strong_beat", "Double dip on the bar's first beat", 1.5, _beat_hit_strong),
         RewardTerm("body_bob", "Points for body bounce synced to beats", 0.8, _bob_with_beat),
         _upright_term(1.5),
@@ -111,6 +111,29 @@ _register(Behavior(
                    _action_rate_pen, is_penalty=True),
     ),
     default_steps=3_000_000,
+    # v1/v2 后验：会跟拍但 ~1.4s 就摔 —— 与 official backflip 的"先学站稳"同坑。
+    # 课程三段：微摆站稳 → 半幅跟拍 → 全幅卡点（DANCE_SWING/DANCE_DUTY 走 spawn knob）。
+    curriculum=(
+        CurriculumStage("learn to stand with a tiny groove", 1_500_000,
+                        {"DANCE_SWING": "0.08", "DANCE_DUTY": "0.0",
+                         "MICRODUCK_EPISODE_S": "10"},
+                        detail=(
+                            "Beat signal at quarter amplitude, no beat pulses: "
+                            "the duck's only job is to stay upright while the "
+                            "head target sways gently. Stand first, then dance.")),
+        CurriculumStage("half-amplitude groove", 1_500_000,
+                        {"DANCE_SWING": "0.15", "DANCE_DUTY": "0.05",
+                         "MICRODUCK_EPISODE_S": "14"},
+                        detail=(
+                            "Half swing, soft beat pulses. Tracking tightens "
+                            "while the balance stack holds the line.")),
+        CurriculumStage("full-amplitude on-beat dancing", 3_000_000,
+                        {},
+                        detail=(
+                            "Full swing + beat pulses + strong-beat emphasis "
+                            "at 120 BPM — the whole trick, now on a body that "
+                            "knows how to stand.")),
+    ),
     success_metric="beat-hit rate + swing tracking error at held-out BPMs",
     episode_s=24.0,
     symmetric=False,  # 卡点舞无镜像对称（强拍有方向性）

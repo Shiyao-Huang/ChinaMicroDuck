@@ -27,7 +27,7 @@ from . import nod as _nod
 from . import poses as _poses
 
 _SUBMODULES = [_core, _poses, _headstand, _backflip, _airflip, _imitate,
-               _locomotion, _envm]
+               _locomotion, _envm, _dance, _nod]
 
 # The BARE submodule names. `from . import core as _core` binds `_core` here
 # AND pins `core` on the package (the import system does that for every

@@ -39,7 +39,7 @@ class DanceEnv(BehaviorEnv):
         self.style = os.environ.get("DANCE_STYLE", "four4")
         self.phase0 = float(os.environ.get("DANCE_PHASE", "0"))
         self.swing_amp = float(os.environ.get("DANCE_SWING", "0.30"))
-        self.duty = float(os.environ.get("DANCE_DUTY", "0.10"))
+        self.duty = float(os.environ.get("DANCE_DUTY", "0.22"))
         if self.style == "rock":
             self.swing_amp *= 1.3
         self.beats_per_bar = 3.0 if self.style == "three4" else 4.0
