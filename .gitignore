@@ -1,0 +1,6 @@
+.DS_Store
+*.pyc
+__pycache__/
+05_sim/.venv/
+05_sim/microduck-lab-apple/microduck_local/runs/
+05_sim/microduck-lab-apple/microduck_local/.venv/

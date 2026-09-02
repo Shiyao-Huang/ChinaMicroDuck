@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "model_api": 1,
+  "obs_len": 61,
+  "action_len": 14,
+  "robot": {
+    "model": "microduck",
+    "hw_rev": 1,
+    "servos": "xl330",
+    "control_hz": 50
+  },
+  "description": "The policy set a microduck ships with: walking, standing, and the one-shots its buttons run.",
+  "policies": [
+    { "file": "alpha_walking.onnx",     "kind": "perpetual" },
+    { "file": "alpha_stand.onnx",       "kind": "perpetual" },
+    { "file": "alpha_sitstand.onnx",    "kind": "perpetual" },
+    { "file": "roller.onnx",            "kind": "perpetual" },
+    { "file": "alpha_ground_pick.onnx", "kind": "scripted" },
+    { "file": "roller_crouch.onnx",     "kind": "scripted" },
+    { "file": "roulade.onnx",           "kind": "episodic", "duration_s": 1.0, "chain": true },
+    { "file": "ball_kick_left.onnx",    "name": "kick_left",  "kind": "episodic", "duration_s": 0.5 },
+    { "file": "ball_kick_right.onnx",   "name": "kick_right", "kind": "episodic", "duration_s": 0.5 }
+  ]
+}

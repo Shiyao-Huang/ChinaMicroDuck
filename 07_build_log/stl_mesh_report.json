@@ -1,0 +1,660 @@
+[
+ {
+  "file": "ankle_l_v1.stl",
+  "faces": 4718,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 6686.9,
+  "extents": {
+   "x": 0.03949,
+   "y": 0.0465,
+   "z": 0.0254
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "ankle_left.stl",
+  "faces": 4978,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 7877.8,
+  "extents": {
+   "x": 0.03949,
+   "y": 0.0365,
+   "z": 0.0255
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "ankle_r_v1.stl",
+  "faces": 4714,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 6686.8,
+  "extents": {
+   "x": 0.03949,
+   "y": 0.0465,
+   "z": 0.0254
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "ankle_right.stl",
+  "faces": 4976,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 7877.8,
+  "extents": {
+   "x": 0.03949,
+   "y": 0.0365,
+   "z": 0.0255
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "banana_pcb_locker.stl",
+  "faces": 1388,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 459.7,
+  "extents": {
+   "x": 0.05405,
+   "y": 0.0038,
+   "z": 0.00665
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "bearing_roll.stl",
+  "faces": 2420,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 625.3,
+  "extents": {
+   "x": 0.023,
+   "y": 0.003,
+   "z": 0.04
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "bottom_head_shell.stl",
+  "faces": 20970,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 23796.3,
+  "extents": {
+   "x": 0.09176,
+   "y": 0.11675,
+   "z": 0.02014
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "elec_rpi_robot_hat_pcb.stl",
+  "faces": 18856,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 1569.2,
+  "extents": {
+   "x": 0.06503,
+   "y": 0.03003,
+   "z": 0.00084
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "face_part.stl",
+  "faces": 11412,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 5824.2,
+  "extents": {
+   "x": 0.08765,
+   "y": 0.0125,
+   "z": 0.04463
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "foot_left.stl",
+  "faces": 19922,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 12178.1,
+  "extents": {
+   "x": 0.04009,
+   "y": 0.054,
+   "z": 0.01691
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "foot_right.stl",
+  "faces": 19914,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 12178.0,
+  "extents": {
+   "x": 0.04009,
+   "y": 0.054,
+   "z": 0.01691
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "hip_l.stl",
+  "faces": 20970,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 4524.7,
+  "extents": {
+   "x": 0.03245,
+   "y": 0.0345,
+   "z": 0.019
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "jaw.stl",
+  "faces": 9918,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 9360.1,
+  "extents": {
+   "x": 0.09142,
+   "y": 0.06871,
+   "z": 0.02945
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "jaw_soft.stl",
+  "faces": 6726,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 18601.2,
+  "extents": {
+   "x": 0.08767,
+   "y": 0.03223,
+   "z": 0.00844
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "left_shell.stl",
+  "faces": 20970,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 11388.3,
+  "extents": {
+   "x": 0.03371,
+   "y": 0.08089,
+   "z": 0.04169
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "left_upper_leg.stl",
+  "faces": 12250,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 4149.7,
+  "extents": {
+   "x": 0.028,
+   "y": 0.04766,
+   "z": 0.061
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "leg.stl",
+  "faces": 14776,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 3405.9,
+  "extents": {
+   "x": 0.00795,
+   "y": 0.02,
+   "z": 0.058
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "lens.stl",
+  "faces": 1872,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 2803.0,
+  "extents": {
+   "x": 0.01694,
+   "y": 0.01892,
+   "z": 0.01694
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "m12_lens_holder.stl",
+  "faces": 10992,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 1097.7,
+  "extents": {
+   "x": 0.024,
+   "y": 0.0148,
+   "z": 0.016
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "motor_support.stl",
+  "faces": 3616,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 7515.1,
+  "extents": {
+   "x": 0.0735,
+   "y": 0.0542,
+   "z": 0.0188
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "neck.stl",
+  "faces": 1468,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 399.9,
+  "extents": {
+   "x": 0.002,
+   "y": 0.02,
+   "z": 0.011
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "neck_pitch.stl",
+  "faces": 7120,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 4106.7,
+  "extents": {
+   "x": 0.035,
+   "y": 0.018,
+   "z": 0.02769
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "noenoeil.stl",
+  "faces": 984,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 4250.2,
+  "extents": {
+   "x": 0.03,
+   "y": 0.0095,
+   "z": 0.03
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "np_f970.stl",
+  "faces": 20970,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 51555.5,
+  "extents": {
+   "x": 0.03861,
+   "y": 0.02058,
+   "z": 0.07081
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "pcb__raspberry_pi_zero_2_w.stl",
+  "faces": 20970,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 3018.4,
+  "extents": {
+   "x": 0.065,
+   "y": 0.0016,
+   "z": 0.03
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "power_support.stl",
+  "faces": 12832,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 10493.9,
+  "extents": {
+   "x": 0.0545,
+   "y": 0.017,
+   "z": 0.08349
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "right_shell.stl",
+  "faces": 20970,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 11216.9,
+  "extents": {
+   "x": 0.03176,
+   "y": 0.0809,
+   "z": 0.04169
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "right_upper_leg.stl",
+  "faces": 12250,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 4150.0,
+  "extents": {
+   "x": 0.028,
+   "y": 0.04766,
+   "z": 0.061
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "rim.stl",
+  "faces": 2304,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 1034.2,
+  "extents": {
+   "x": 0.0076,
+   "y": 0.0202,
+   "z": 0.0202
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "roller_blade.stl",
+  "faces": 20968,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 11807.6,
+  "extents": {
+   "x": 0.04054,
+   "y": 0.073,
+   "z": 0.03038
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "seeed_bearing__configuration__22x16x4.stl",
+  "faces": 20970,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 493.0,
+  "extents": {
+   "x": 0.022,
+   "y": 0.022,
+   "z": 0.004
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "seeed_bearing__configuration_default.stl",
+  "faces": 20970,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 189.5,
+  "extents": {
+   "x": 0.015,
+   "y": 0.015,
+   "z": 0.003
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "soft_mouth_top.stl",
+  "faces": 7870,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 2699.6,
+  "extents": {
+   "x": 0.08782,
+   "y": 0.03257,
+   "z": 0.00328
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "sole_left.stl",
+  "faces": 15788,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 6250.3,
+  "extents": {
+   "x": 0.0411,
+   "y": 0.054,
+   "z": 0.01291
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "sole_right.stl",
+  "faces": 15888,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 6250.3,
+  "extents": {
+   "x": 0.0411,
+   "y": 0.054,
+   "z": 0.01291
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "speaker.stl",
+  "faces": 12,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 6125.0,
+  "extents": {
+   "x": 0.035,
+   "y": 0.025,
+   "z": 0.007
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "tire.stl",
+  "faces": 7056,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 2811.0,
+  "extents": {
+   "x": 0.0076,
+   "y": 0.03,
+   "z": 0.03
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "top_head_shell.stl",
+  "faces": 16120,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 29873.2,
+  "extents": {
+   "x": 0.09176,
+   "y": 0.12269,
+   "z": 0.04634
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "trunk_base.stl",
+  "faces": 3698,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 1415.1,
+  "extents": {
+   "x": 0.057,
+   "y": 0.036,
+   "z": 0.003
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "trunk_shell_left.stl",
+  "faces": 14166,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 9745.4,
+  "extents": {
+   "x": 0.0309,
+   "y": 0.08243,
+   "z": 0.0357
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "trunk_shell_right.stl",
+  "faces": 11358,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 9898.0,
+  "extents": {
+   "x": 0.0335,
+   "y": 0.08243,
+   "z": 0.0347
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "upper_leg_left.stl",
+  "faces": 12250,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 4149.7,
+  "extents": {
+   "x": 0.028,
+   "y": 0.04766,
+   "z": 0.061
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "upper_leg_right.stl",
+  "faces": 12250,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 4150.0,
+  "extents": {
+   "x": 0.028,
+   "y": 0.04766,
+   "z": 0.061
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "upper_leg_rigidity_plate.stl",
+  "faces": 3600,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 747.8,
+  "extents": {
+   "x": 0.001,
+   "y": 0.045,
+   "z": 0.05806
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "xl330.stl",
+  "faces": 4126,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 15676.0,
+  "extents": {
+   "x": 0.029,
+   "y": 0.02,
+   "z": 0.034
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "yaw2roll.stl",
+  "faces": 12404,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 2816.1,
+  "extents": {
+   "x": 0.023,
+   "y": 0.0258,
+   "z": 0.0205
+  },
+  "unit": "meters(mjcf)"
+ },
+ {
+  "file": "yaw_roll_motion.stl",
+  "faces": 5814,
+  "watertight": false,
+  "winding_consistent": true,
+  "self_intersecting": null,
+  "volume_mm3": 4555.8,
+  "extents": {
+   "x": 0.034,
+   "y": 0.0359,
+   "z": 0.0225
+  },
+  "unit": "meters(mjcf)"
+ }
+]

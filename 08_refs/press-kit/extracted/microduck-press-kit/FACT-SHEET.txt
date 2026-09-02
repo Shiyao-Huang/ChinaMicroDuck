@@ -1,0 +1,128 @@
+MICRODUCK - PRESS FACT SHEET
+Pollen Robotics, the Bordeaux-based robotics team at Hugging Face
+Press contact: contact@pollen-robotics.com
+
+
+THE ONE-LINER
+
+Microduck is a 25 cm tall biped robot, playful and educational, made by
+Pollen Robotics, the Bordeaux-based robotics team at Hugging Face. Their
+second consumer robot, after Reachy Mini. It walks with a waddle, sits,
+crouches, roller-skates, picks objects up with its beak and gets back on
+its feet from many common fall positions.
+
+
+FAST FACTS
+
+- 15 motors
+- 25 cm tall, 14 cm wide
+- Under 800 g
+- Camera, plus LiDAR and two IMUs
+- 7 trained moves in the box
+- 50 Hz onboard policy loop
+- Open-source software stack: virtual training environments, RL training
+  scripts and tools, and a tested sim-to-real workflow, released before
+  the first robots ship
+
+
+LAUNCH
+
+- Pre-orders open August 27, 2026
+- $399 before taxes and shipping (introductory price)
+- First deliveries targeted before Christmas 2026
+- Markets: North America and Europe at launch
+
+
+PRICING AND PACKS
+
+- Microduck - $399 - robot, battery, USB-C cable, game controller
+- Charger pack - $39 - dual charger, 2x batteries
+- Dev pack - $119 - 3x spare motors, 5x motor cables, 2x batteries,
+  dual charger, 10x NFC tags, Hugging Face credit, screwdriver,
+  screw pack
+- Accessory pack - $39 - laser pointer, NFC polaroid, 2x rollers,
+  ball, 10x NFC tags
+
+
+COLOURWAYS
+
+Four printed colourways at launch - same robot underneath. Hex values are
+the calibrated shell colours from the press photos.
+
+- Cream (#f7e6cb): cream shells, orange trim and beak
+- Graphite (#6c6a68): graphite shells, yellow trim and beak
+- Lavender (#bfa9cf): lavender shells, yellow trim and beak
+- Sky (#a9dbe8): sky-blue shells, orange trim and beak
+
+
+KEY SPECIFICATIONS
+
+- Motors: 15 degrees of freedom, across articulated legs, head and neck
+- Dimensions: 25 cm tall, 14 cm wide
+- Weight: under 800 g
+- Compute: Rockchip RK3566 with AI accelerator
+- Memory: 1 GB RAM, 32 GB storage
+- Vision: front camera, with a dedicated camera-use indicator inspired by
+  classic REC lights
+- Motion sensing: 2 IMUs, one in the body and one in the head
+- Range sensing: compact LiDAR, an 8x8 time-of-flight matrix
+- Physical interaction: articulated grasping beak
+- Audio: microphones and speaker, with a per-robot generated voice
+- NFC: 2 antennas, one in the head and one in the beak
+- Connectivity: Wi-Fi and Bluetooth
+- Battery: removable NP-F550 camera battery, 2600 mAh, around one hour of
+  runtime depending on use
+- In the box: game controller, playable before writing any code, plus
+  autonomous behaviours at launch
+- Software: open-source SDK with virtual training environments, RL
+  training scripts and tools, and a tested sim-to-real workflow, released
+  before the first robots ship
+
+Not final yet: camera resolution and field of view, LiDAR range, radio
+versions and SDK languages, and any age recommendation. Microduck's
+software stack is open source; the mechanical and electronic design files
+are not covered by that statement, so please do not describe the robot as
+open-source hardware.
+
+
+BOILERPLATE (paste-ready)
+
+About Microduck
+Microduck is a 25 cm biped robot with 15 motors, a camera, LiDAR and a
+grasping beak. It is playable out of the box, and its open-source
+software stack lets you train new behaviours in simulation and run them
+on the robot. Pre-orders open at $399, with first deliveries targeted
+before Christmas 2026.
+
+About Pollen Robotics
+Pollen Robotics builds open-source robots from Bordeaux, France. Founded
+in 2016 by former Inria researchers, the team joined Hugging Face in
+April 2025 and is its robotics team. Microduck is their second consumer
+robot, after Reachy Mini.
+
+
+IN THIS KIT
+
+- FACT-SHEET.txt - this document
+- PHOTOS/ - the launch shoot, full-quality JPG originals (including the
+  team portrait)
+- STICKERS/ - the sheet's 36 die-cut stickers (QUACK, BANG, BOOM, bolts,
+  stars, flames and friends) as transparent PNGs
+- BRAND/ - the Microduck wordmark (PNG with transparency + vector SVG).
+  The wordmark carries its own outline, so it sits on a light or a dark
+  background as it is - please leave its colours and proportions alone.
+
+The stickers are free to use in any story about Microduck.
+
+
+LINKS
+
+- GitHub (SDK, simulation environment and RL training stack):
+  https://github.com/pollen-robotics/microduck
+- Discord (Pollen Robotics community):
+  https://discord.com/invite/pollen-community-519098054377340948
+
+
+PRESS CONTACT
+
+Interviews, review units, extra assets: contact@pollen-robotics.com
