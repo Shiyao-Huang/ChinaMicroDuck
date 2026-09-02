@@ -45,13 +45,16 @@ def _swing_track_wide(env) -> float:
 
 
 def _beat_hit(env) -> float:
-    """节点命中：head_pitch 在 pulse 窗口内跟下压（宽高斯，窗口本身就是奖励门）。"""
+    """节点命中：窗口内贴脉冲目标；窗口外必须回 0（v5 教训：无回位奖励时
+    策略把头停在 -0.3 不回——严格命中率只剩 30%）。全时段有梯度。"""
     _, pulse_t, _, _ = _beat_terms(env)
-    if pulse_t >= 0.0:
-        return 0.0  # 窗口外零分（v4教训：底薪=奖励不压头）
     actual = float(env._joint_pos_rel()[6])    # head_pitch
-    err = actual - pulse_t                     # 目标是负值（下压）
-    return float(np.exp(-(err * err) / 0.3 ** 2))
+    err = actual - pulse_t
+    inside = float(np.exp(-(err * err) / 0.3 ** 2))
+    if pulse_t >= 0.0:                          # 窗口外：目标是 0（回位）
+        home_err = actual - 0.0
+        return 0.10 * float(np.exp(-(home_err * home_err) / 0.15 ** 2))
+    return inside
 
 
 def _beat_hit_strong(env) -> float:
@@ -61,7 +64,7 @@ def _beat_hit_strong(env) -> float:
         return 0.0
     actual = float(env._joint_pos_rel()[6])
     err = actual - pulse_t
-    return float(np.exp(-(err * err) / 0.25 ** 2))
+    return float(np.exp(-(err * err) / 0.3 ** 2))
 
 
 def _dip_park_pen(env) -> float:

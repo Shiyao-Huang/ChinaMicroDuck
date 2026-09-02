@@ -2562,6 +2562,10 @@ def convert_capture(src: Path, base: str) -> dict:
 # ?lab=host:port). Non-browser clients — curl, the CLI, the tests — send no
 # Origin at all; that is not a forgeable state, so it passes.
 LOCAL_ORIGIN_RE = re.compile(r"^https?://(localhost|127\.0\.0\.1|\[::1\])(:\d+)?$")
+if os.environ.get("LAB_ALLOW_LAN") == "1":
+    # Opt-in LAN mode: same-machine surface widened to private nets.
+    LOCAL_ORIGIN_RE = re.compile(
+        r"^https?://(localhost|127\.0\.0\.1|\[::1\]|192\.168\.[0-9.]+|10\.[0-9.]+|172\.(1[6-9]|2[0-9]|3[01])\.[0-9.]+)(:\d+)?$")
 
 # CORS-safelisted request content types. A cross-origin POST carrying one of
 # these is a "simple" request: the browser dispatches it with NO preflight, so
@@ -3556,6 +3560,9 @@ def main() -> None:
     ap.add_argument("--checkpoints", default=None,
                     help="run dir: add one duck per training checkpoint")
     ap.add_argument("--port", type=int, default=8788)
+    ap.add_argument("--host", default="127.0.0.1",
+                    help="0.0.0.0 opens the lab to the LAN (origin check "
+                         "stays localhost-only unless LAB_ALLOW_LAN=1)")
     ap.add_argument("--fresh", action="store_true",
                     help="delete lab-state.json and seed the roster from the "
                          "CLI args instead of restoring it")
@@ -3575,7 +3582,10 @@ def main() -> None:
     print(f"[lab] {len(ducks)} ducks: {', '.join(d.label for d in ducks)}")
 
     import uvicorn
-    uvicorn.run(make_app(ducks), host="127.0.0.1", port=args.port, log_level="warning")
+    host = args.host if hasattr(args, "host") else "127.0.0.1"
+    if host != "127.0.0.1":
+        os.environ["LAB_ALLOW_LAN"] = "1"
+    uvicorn.run(make_app(ducks), host=host, port=args.port, log_level="warning")
 
 
 if __name__ == "__main__":

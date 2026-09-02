@@ -35,7 +35,12 @@ class DanceEnv(BehaviorEnv):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.bpm = float(os.environ.get("DANCE_BPM", "105"))
+        lo = os.environ.get("DANCE_BPM_LO")
+        hi = os.environ.get("DANCE_BPM_HI")
+        self._bpm_range = (float(lo), float(hi)) if (lo and hi) else None
+        self.bpm = (float(np.random.default_rng().uniform(*self._bpm_range))
+                    if self._bpm_range
+                    else float(os.environ.get("DANCE_BPM", "105")))
         self.style = os.environ.get("DANCE_STYLE", "four4")
         self.phase0 = float(os.environ.get("DANCE_PHASE", "0"))
         self.swing_amp = float(os.environ.get("DANCE_SWING", "0.30"))
@@ -43,6 +48,11 @@ class DanceEnv(BehaviorEnv):
         if self.style == "rock":
             self.swing_amp *= 1.3
         self.beats_per_bar = 3.0 if self.style == "three4" else 4.0
+
+    def reset(self, *, seed=None, options=None):
+        if self._bpm_range:
+            self.bpm = float(np.random.default_rng().uniform(*self._bpm_range))
+        return super().reset(seed=seed, options=options)
 
     def step(self, action):
         t = self.data.time
