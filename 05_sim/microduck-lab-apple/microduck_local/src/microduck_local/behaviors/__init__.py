@@ -22,6 +22,7 @@ from . import env as _envm
 from . import headstand as _headstand
 from . import imitate as _imitate
 from . import locomotion as _locomotion
+from . import dance as _dance
 from . import nod as _nod
 from . import poses as _poses
 

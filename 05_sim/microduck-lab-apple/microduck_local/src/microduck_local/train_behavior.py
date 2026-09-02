@@ -114,7 +114,13 @@ def make_env(behavior_id: str, rank: int, seed: int,
         if b.forward_cmd:
             kw.update(domain_rand=True, random_yaw=True, actuator="bam",
                       height_termination=False)
-        return BehaviorEnv(behavior_id, weight_overrides=weight_overrides, **kw)
+        # DanceEnv opt-in: DANCE=1 routes the env to the DJ command-injection
+        # subclass (bpm/style/phase ride DANCE_BPM/DANCE_STYLE/DANCE_PHASE).
+        env_cls = BehaviorEnv
+        if os.environ.get("DANCE") == "1":
+            from .behaviors.dance_env import DanceEnv
+            env_cls = DanceEnv
+        return env_cls(behavior_id, weight_overrides=weight_overrides, **kw)
     return _init
 
 
