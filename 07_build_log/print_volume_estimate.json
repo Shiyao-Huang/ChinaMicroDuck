@@ -1,0 +1,297 @@
+{
+ "rows": [
+  {
+   "file": "ankle_l_v1",
+   "cm3": 6.69,
+   "qty": 2,
+   "total_cm3": 13.37
+  },
+  {
+   "file": "ankle_left",
+   "cm3": 7.88,
+   "qty": 2,
+   "total_cm3": 15.76
+  },
+  {
+   "file": "ankle_r_v1",
+   "cm3": 6.69,
+   "qty": 2,
+   "total_cm3": 13.37
+  },
+  {
+   "file": "ankle_right",
+   "cm3": 7.88,
+   "qty": 2,
+   "total_cm3": 15.76
+  },
+  {
+   "file": "banana_pcb_locker",
+   "cm3": 0.46,
+   "qty": 1,
+   "total_cm3": 0.46
+  },
+  {
+   "file": "bearing_roll",
+   "cm3": 0.63,
+   "qty": 2,
+   "total_cm3": 1.25
+  },
+  {
+   "file": "bottom_head_shell",
+   "cm3": 23.8,
+   "qty": 1,
+   "total_cm3": 23.8
+  },
+  {
+   "file": "elec_rpi_robot_hat_pcb",
+   "cm3": 1.57,
+   "qty": 1,
+   "total_cm3": 1.57
+  },
+  {
+   "file": "face_part",
+   "cm3": 5.82,
+   "qty": 1,
+   "total_cm3": 5.82
+  },
+  {
+   "file": "foot_left",
+   "cm3": 12.18,
+   "qty": 2,
+   "total_cm3": 24.36
+  },
+  {
+   "file": "foot_right",
+   "cm3": 12.18,
+   "qty": 2,
+   "total_cm3": 24.36
+  },
+  {
+   "file": "hip_l",
+   "cm3": 4.52,
+   "qty": 2,
+   "total_cm3": 9.05
+  },
+  {
+   "file": "jaw",
+   "cm3": 9.36,
+   "qty": 1,
+   "total_cm3": 9.36
+  },
+  {
+   "file": "jaw_soft",
+   "cm3": 18.6,
+   "qty": 1,
+   "total_cm3": 18.6
+  },
+  {
+   "file": "left_shell",
+   "cm3": 11.39,
+   "qty": 1,
+   "total_cm3": 11.39
+  },
+  {
+   "file": "left_upper_leg",
+   "cm3": 4.15,
+   "qty": 2,
+   "total_cm3": 8.3
+  },
+  {
+   "file": "leg",
+   "cm3": 3.41,
+   "qty": 2,
+   "total_cm3": 6.81
+  },
+  {
+   "file": "lens",
+   "cm3": 2.8,
+   "qty": 1,
+   "total_cm3": 2.8
+  },
+  {
+   "file": "m12_lens_holder",
+   "cm3": 1.1,
+   "qty": 1,
+   "total_cm3": 1.1
+  },
+  {
+   "file": "motor_support",
+   "cm3": 7.52,
+   "qty": 1,
+   "total_cm3": 7.52
+  },
+  {
+   "file": "neck",
+   "cm3": 0.4,
+   "qty": 2,
+   "total_cm3": 0.8
+  },
+  {
+   "file": "neck_pitch",
+   "cm3": 4.11,
+   "qty": 2,
+   "total_cm3": 8.21
+  },
+  {
+   "file": "noenoeil",
+   "cm3": 4.25,
+   "qty": 1,
+   "total_cm3": 4.25
+  },
+  {
+   "file": "np_f970",
+   "cm3": 51.56,
+   "qty": 1,
+   "total_cm3": 51.56
+  },
+  {
+   "file": "pcb__raspberry_pi_zero_2_w",
+   "cm3": 3.02,
+   "qty": 1,
+   "total_cm3": 3.02
+  },
+  {
+   "file": "power_support",
+   "cm3": 10.49,
+   "qty": 1,
+   "total_cm3": 10.49
+  },
+  {
+   "file": "right_shell",
+   "cm3": 11.22,
+   "qty": 1,
+   "total_cm3": 11.22
+  },
+  {
+   "file": "right_upper_leg",
+   "cm3": 4.15,
+   "qty": 2,
+   "total_cm3": 8.3
+  },
+  {
+   "file": "rim",
+   "cm3": 1.03,
+   "qty": 1,
+   "total_cm3": 1.03
+  },
+  {
+   "file": "roller_blade",
+   "cm3": 11.81,
+   "qty": 1,
+   "total_cm3": 11.81
+  },
+  {
+   "file": "seeed_bearing__configuration__22x16x4",
+   "cm3": 0.49,
+   "qty": 1,
+   "total_cm3": 0.49
+  },
+  {
+   "file": "seeed_bearing__configuration_default",
+   "cm3": 0.19,
+   "qty": 1,
+   "total_cm3": 0.19
+  },
+  {
+   "file": "soft_mouth_top",
+   "cm3": 2.7,
+   "qty": 1,
+   "total_cm3": 2.7
+  },
+  {
+   "file": "sole_left",
+   "cm3": 6.25,
+   "qty": 1,
+   "total_cm3": 6.25
+  },
+  {
+   "file": "sole_right",
+   "cm3": 6.25,
+   "qty": 1,
+   "total_cm3": 6.25
+  },
+  {
+   "file": "speaker",
+   "cm3": 6.13,
+   "qty": 1,
+   "total_cm3": 6.13
+  },
+  {
+   "file": "tire",
+   "cm3": 2.81,
+   "qty": 1,
+   "total_cm3": 2.81
+  },
+  {
+   "file": "top_head_shell",
+   "cm3": 29.87,
+   "qty": 1,
+   "total_cm3": 29.87
+  },
+  {
+   "file": "trunk_base",
+   "cm3": 1.42,
+   "qty": 1,
+   "total_cm3": 1.42
+  },
+  {
+   "file": "trunk_shell_left",
+   "cm3": 9.75,
+   "qty": 1,
+   "total_cm3": 9.75
+  },
+  {
+   "file": "trunk_shell_right",
+   "cm3": 9.9,
+   "qty": 1,
+   "total_cm3": 9.9
+  },
+  {
+   "file": "upper_leg_left",
+   "cm3": 4.15,
+   "qty": 2,
+   "total_cm3": 8.3
+  },
+  {
+   "file": "upper_leg_right",
+   "cm3": 4.15,
+   "qty": 2,
+   "total_cm3": 8.3
+  },
+  {
+   "file": "upper_leg_rigidity_plate",
+   "cm3": 0.75,
+   "qty": 2,
+   "total_cm3": 1.5
+  },
+  {
+   "file": "xl330",
+   "cm3": 15.68,
+   "qty": 1,
+   "total_cm3": 15.68
+  },
+  {
+   "file": "yaw2roll",
+   "cm3": 2.82,
+   "qty": 1,
+   "total_cm3": 2.82
+  },
+  {
+   "file": "yaw_roll_motion",
+   "cm3": 4.56,
+   "qty": 1,
+   "total_cm3": 4.56
+  }
+ ],
+ "summary": {
+  "files": 47,
+  "total_cm3": 442.4,
+  "pla_grams": 549.0,
+  "tpu_grams": 20,
+  "estimate": {
+   "material_only_cny": 35.0,
+   "outsource_low_cny": 1106.0,
+   "outsource_high_cny": 1770.0
+  }
+ }
+}

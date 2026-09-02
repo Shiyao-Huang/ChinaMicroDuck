@@ -1,0 +1,201 @@
+% Microduck 国产复刻方案书 · A/B/C/D 四方案合订本
+% 编译: xelatex main.tex (运行两次以生成目录)
+\documentclass[11pt,a4paper]{ctexart}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{booktabs,longtable,array,xcolor,colortbl,hyperref,enumitem}
+\hypersetup{colorlinks=true,linkcolor=blue!60!black,urlcolor=blue!50!black,pdftitle={Microduck 国产复刻方案书}}
+\definecolor{hblue}{RGB}{20,60,120}
+\definecolor{rowgray}{RGB}{245,245,245}
+\setlength{\parskip}{0.4em}
+\newcommand{\good}[1]{\textcolor{green!55!black}{#1}}
+\newcommand{\warn}[1]{\textcolor{orange!85!black}{#1}}
+\newcommand{\bad}[1]{\textcolor{red!75!black}{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\title{\vspace{-1.5cm}\textbf{Microduck 国产复刻方案书}\\[0.3em]\large 方案 A/B/C/D · 实价询价版 · 5 台起步 / 200 台放量}
+\author{复刻资料库 v2 · 询价日期 2026-09-02}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{center}
+\begin{minipage}{0.92\textwidth}\small
+\textbf{结论先行}：官方软件全开源（Apache-2.0），硬件不开源；机械可照抄（47 STL 已验证水密），
+电控协议已从源码完整逆向，整机可复刻。经 2026-09-02 实价询价（1688/淘宝/京东），成本大幅好于此前估计：
+\good{XL330 实价 ¥120--188（非淘宝零售 ¥238）}，\good{宇树 S288 官方旗舰店 ¥99/个}。
+建议：\textbf{先 C 后 A 组合}（C 最快跑通整机，A 保真并行备料）。
+\end{minipage}
+\end{center}
+
+\tableofcontents
+
+\section{方案总对比}
+
+\begin{longtable}{L{2.6cm}L{3.4cm}L{3.4cm}L{3.4cm}L{3.2cm}}
+\toprule
+ & \textbf{A · 忠实复刻} & \textbf{B · S288 升级} & \textbf{C · Open Duck Mini} & \textbf{D · 极简原尺寸} \\
+\midrule
+定位 & 1:1 还原官方机 & 国产电驱升级 & 全开源前代 & 原尺寸低成本 \\
+尺寸/重量 & 25cm/737g & 25cm/$\sim$750g & 42cm/2.1kg & 25cm/800--900g \\
+舵机 & XL330-M288$\times$15 & S288$\times$15 & STS3215$\times$16 & STS3215$\times$15 \\
+舵机实价 & ¥1,800--2,820 & ¥1,485 & ¥800--1,584 & ¥750--1,485 \\
+主控 & Radxa Zero 3W & Radxa Zero 3W & Pi Zero 2W & 任意 SBC \\
+自制 PCB & 1 块必做 & 可模块替代 & 零 & 零 \\
+官方策略 & \good{直接用} & 全重训 & 部分可用 & 全重训 \\
+单台成本 & \textbf{¥3,400--4,400} & \textbf{¥2,800--3,700} & \textbf{¥1,700--2,100} & \textbf{¥2,100--2,700} \\
+5 台小计 & ¥17,000--22,000 & ¥14,000--18,500 & ¥8,500--10,500 & ¥10,500--13,500 \\
+200 台料本 & $\sim$¥68--88 万 & $\sim$¥56--74 万 & $\sim$¥34--42 万 & $\sim$¥42--54 万 \\
+难度 & $\bigstar\bigstar\bigstar\bigstar$ & $\bigstar\bigstar\bigstar\bigstar\bigstar$ & $\bigstar\bigstar$ & $\bigstar\bigstar\bigstar$ \\
+\bottomrule
+\end{longtable}
+
+\noindent\textbf{放量说明}：200 台档按批量价（舵机 -15\%，SBC -10\%，打印 -40\%，PCB -60\%）估算；
+PCB/SMT 换量产价（见 \S6）。官方整机售价 \$399 为规模化价格对照，批量后 A 方案逼近该毛利线。
+
+\section{实价询价记录（2026-09-02）}
+
+\begin{longtable}{L{4.2cm}L{3.0cm}L{2.6cm}L{5.0cm}}
+\toprule
+\textbf{物料} & \textbf{渠道} & \textbf{实价} & \textbf{卖家/备注} \\
+\midrule
+XL330-M288-T & 1688 & \good{¥120.01} & 义乌透准（LEAPHand 关节，接受货期） \\
+XL330-M288-T & 1688 & ¥121.22 / ¥121.43 & 南通木和娟 / 东莞鑫台阳 \\
+XL330-M288-T & 1688 & ¥188 & 青岛催汇兴（韩国空运现货） \\
+XL330-M288-T & 淘宝授权店 & ¥235--238 & ROBOTIS 官方授权（对价参考） \\
+宇树 S288 & 淘宝官方旗舰店 & \good{¥99} & Unitree 宇树旗舰店（56 人付款，包邮） \\
+宇树 S288 & 淘宝分销 & ¥169 & 智通未来 \\
+飞特 ST3215 & 淘宝 & ¥50 & 维特机器人（LeRobot 开源机械臂同款，200+ 付款） \\
+飞特 STS3215 & 淘宝 & ¥99 & 鸿翊电子（\textbf{OpenDuck 专用}字样，串口版） \\
+Pi Zero 2W & 淘宝 & ¥128--148 & 树莓派 Store 企业店 / createblock \\
+Radxa Zero 3W & 淘宝 & ¥673--1149 & 上海（套装价虚高，裸板需询价，早鸟曾 ¥122） \\
+NP-F550 电池 & 淘宝 & ¥34.7--55 & 沣标 / 唯卓仕（1000+ 人付款） \\
+VL53L8CX 模块 & 淘宝 & ¥75--81.5 & 深圳优信电子（企业购） \\
+\bottomrule
+\end{longtable}
+
+\noindent\warn{风险注明}：1688 低价件多为贸易商现货（货期 1--3 周），非 ROBOTIS 代理；
+量产需走代理锁价。Radxa 裸板 1688 被反爬拦截未取到，按 ¥150--300 估，下单前客服确认。
+
+\section{方案 A · 忠实复刻（原汁原味）}
+
+\subsection{构成}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item 机械：47 STL（单位米$\to$打印前$\times$1000；E5 实测熔合后 47/47 水密）+ 15 部件装配体；
+M2 螺丝系统（Ø2.2 过孔$\times$77 / Ø4.4 沉头$\times$28 / Ø1.6 底孔$\times$20）；
+轴承 22$\times$16$\times$4 $\times$2、15$\times$10$\times$3 $\times$3
+\item 电控：Radxa Zero 3W（1GB/32GB eMMC 排针版）+ 自画 \textbf{imu\_to\_dxl v2}
+（LSM6DSV16X + STM32G030/CH32V203 + 半双工收发，ID 200 / reg 124，协议已逆向）；
+HAT 可省略（免音频），ToF 用 VL53L8CX 成品模块直插
+\item 软件：官方 Rust 运行时原样跑（host check 已过，见资料库 04 报告）；9 个官方 ONNX 零训练
+\end{itemize}
+
+\subsection{单台 BOM（实价版）}
+\begin{longtable}{L{5.6cm}L{2.4cm}L{2.2cm}L{4.4cm}}
+\toprule
+\textbf{项目} & \textbf{实价} & \textbf{数量} & \textbf{小计} \\
+\midrule
+XL330-M288-T（1688 现货价） & ¥120--188 & 15 & ¥1,800--2,820 \\
+Radxa Zero 3W（裸板估价） & ¥150--300 & 1 & ¥150--300 \\
+imu\_to\_dxl 打样+贴片 & ¥35--120 & 1 & ¥35--120 \\
+IMX219 摄像头 & ¥25--35 & 1 & ¥25--35 \\
+VL53L8CX 模块 & ¥75--82 & 1 & ¥75--82 \\
+NP-F550 + 卡座 & ¥40--60 & 1 & ¥40--60 \\
+打印件（自印料钱） & --- & 1 套 & ¥35--60 \\
+M2 紧固件+轴承 & --- & 1 套 & ¥40--60 \\
+手柄（8BitDo 类） & ¥100--150 & 1 & ¥100--150 \\
+\midrule
+\textbf{单台合计} & & & \textbf{¥3,400--4,400} \\
+\textbf{5 台}（含 1 台损耗冗余） & & & \textbf{¥17,000--22,000} \\
+\textbf{200 台}（批量价） & & & \textbf{$\approx$¥68--88 万} \\
+\bottomrule
+\end{longtable}
+
+\subsection{批量价依据}
+XL330 代理锁价 200 台档约 $-15\%$（¥102--160）；PCB/SMT 换量产（PCB 单板 $<$¥15，SMT 起贴摊薄）；
+打印外协 200 台换注塑评估（模具 3--8 万，单件 $<$¥10）或持续 FDM 农场（¥45/台）。
+
+\section{方案 B · 宇树 S288 升级版}
+
+\subsection{为什么值得}
+S288 官方旗舰店 \good{¥99/个}，19.5g、288.35:1 与 XL330 同减速比、M2 安装、单线 TTL——机械兼容度极高。
+两个实质升级：FOC 阻抗控制（$\tau_{ff}+k_p\Delta p+k_d\Delta\omega$，摔倒柔顺不再靠降增益）；
+输出端 13-bit 编码器（\good{直接消灭回差}，训练可去 backlash 建模）。
+
+\subsection{三面墙（必须解决）}
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item \textbf{电压}：S288 为 3S 12.6V $\to$ 电池换 3S（¥60），供电树重设计
+\item \textbf{总线}：地址仅 0--14 共 15 个 $\to$ 15 舵机占满，IMU 改主控 I2C 直连（LSM6DSV16X 模块 ¥20）
+\item \textbf{驱动}：rustypot 无 S288 $\to$ 按宇树手册自写 6Mbps 1-Wire 驱动层
+\end{enumerate}
+
+\subsection{单台 BOM}
+S288 ¥1,485 + Radxa ¥150--300 + IMU 模块 ¥20 + 摄像头 ¥30 + ToF ¥78 + 3S 电池 ¥60 +
+打印件 ¥35--60 + 紧固 ¥40--60 + 手柄 ¥100--150 $= \textbf{¥2,800--3,700}$。
+5 台 $\approx$¥14,000--18,500；200 台 $\approx$¥56--74 万。
+\bad{先买 2 颗台架标定}（力矩官方标称 1.5 N·m 存疑），BAM 参数重做后全量重训。
+
+\section{方案 C · Open Duck Mini v2（全开源硬件，最快整机）}
+
+官方 BOM/CAD/装配/接线全套公开 + 中文社区教程（zihao 飞书 / Tnkr 指南）。
+STS3215 $\times$16（¥50--99 实价 $\to$ ¥800--1,584）+ Pi Zero 2W（¥128--148）+ BNO055 + MAX98357A +
+脚底开关 + 18650$\times$2。\textbf{零打板、全模块}。官方 BEST\_WALK ONNX 可跑；重训走 Open\_Duck\_Playground。
+单台 \textbf{¥1,700--2,100}；5 台 $\approx$¥8,500--10,500；200 台 $\approx$¥34--42 万。
+代价：它是 42cm/2.1kg 的"大鸭"，无摄像头/ToF。
+
+\section{方案 D · 极简原尺寸版}
+
+保持 25cm 外观，舵机腔按 STS3215 重挖（FreeCAD 仓装配体为起点），结构件加厚；
+STS3215$\times$15 + 香橙派/Pi Zero 2W + 飞特驱动板（rustypot.feetech 官方支持）+ LSM6DSV16X I2C 模块 +
+5V BEC + 2S 电池。策略全重训（执行器参数差一个量级：kp 17.8 vs 0.55，Open Duck Mini 的
+STS3215 标定可直接抄）。单台 \textbf{¥2,100--2,700}；5 台 $\approx$¥10,500--13,500；200 台 $\approx$¥42--54 万。
+\warn{务必先仿真验重量预算再下单}——同架构换 STS3215 整机质量 $\times$2.86（社区实测 2107g）。
+
+\section{打板与制造（嘉立创，实查）}
+
+\begin{longtable}{L{5.2cm}L{4.2cm}L{5.4cm}}
+\toprule
+\textbf{项目} & \textbf{价格} & \textbf{说明} \\
+\midrule
+PCB 打样（2 层，5$\times$5cm 内，5 片） & ¥5--30（活动常免） & 需上传 Gerber 后出精确价；本库规格书就绪 \\
+SMT 贴片 & \textbf{50 元起贴}，1 分/焊点 & LSM6DSV16X+G030 物料另计（¥20--35） \\
+量产 PCB（200 板） & 单板 $<$¥15 & 拼板 2--4 版 / 面板 \\
+3D 打印代工 PLA & ¥2.5--4/cm$^3$ & 整机 442cm$^3$/549g PLA $\to$ 单台 ¥1,100--1,770 \\
+自印（料钱） & $\approx$¥35--60/台 & PLA 549g；TPU 柔性件 20g 另计 \\
+200 台打印路线 & 注塑模具 3--8 万 & 单件 $<$¥10；或 FDM 农场 ¥45/台 \\
+\bottomrule
+\end{longtable}
+
+\section{装机与验证路线（摘要）}
+
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item \textbf{第 1 周}：定方案 $\to$ 下单舵机/主控/紧固件 $\to$ 试印腿部小件验公差（FDM 孔径 $-0.1\sim0.3$mm）
+\item \textbf{第 2--3 周}：imu\_to\_dxl 画板打样（规格书就绪）+ 固件（Dynamixel V2 从机）
+Radxa 刷 Armbian：mask serial-getty@ttyS2 / i2c3 M0 禁 fusb302 / NPU overlay（三坑）
+\item \textbf{第 4--6 周}：总装 $\to$ 16 设备总线扫描 $\to$ 50Hz sync\_read 稳定性
+（丢包 0.27\%/分钟属正常）$\to$ alpha\_walking 上机 $\to$ limp\_fall 测试
+\item \textbf{策略验证}：仿真已闭环（E1/E3）；换硬件后用 microduck\_rl 重训（GB10 CUDA 或 HF Jobs）
+\end{enumerate}
+
+\section{风险登记}
+
+\begin{longtable}{L{4.6cm}L{1.8cm}L{8.0cm}}
+\toprule
+\textbf{风险} & \textbf{等级} & \textbf{缓解} \\
+\midrule
+1688 贸易商供货不稳 & 中 & 量产走 ROBOTIS 代理锁价；分批购入 \\
+仿真 STL 公差不匹配 & 高 & 先打试件；社区 M2 孔位已实物验证可行 \\
+S288 力矩虚标 & 中 & 先购 2 颗 BAM 台架标定再决定 B 方案 \\
+走线空间不足 & 中 & 颈部动态弯折区松线；先做走线样机 \\
+3D 资产 CC BY-NC-SA & --- & 个人/研究复刻 OK；\bad{整机商用前需解决许可} \\
+\bottomrule
+\end{longtable}
+
+\vfill
+\begin{center}\small
+资料库：\texttt{\textasciitilde/Desktop/work/robot/Microduck} · wiki：\texttt{00\_wiki/HOME.md} ·
+询价快照 2026-09-02，价格随行就市。3D 模型衍生品遵守 CC BY-NC-SA（禁商用）。
+\end{center}
+
+\end{document}

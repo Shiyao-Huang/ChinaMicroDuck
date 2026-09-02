@@ -1,0 +1,15 @@
+\contentsline {section}{\numberline {1}方案总对比}{1}{section.1}%
+\contentsline {section}{\numberline {2}实价询价记录（2026-09-02）}{2}{section.2}%
+\contentsline {section}{\numberline {3}方案 A · 忠实复刻（原汁原味）}{3}{section.3}%
+\contentsline {subsection}{\numberline {3.1}构成}{3}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}单台 BOM（实价版）}{3}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}批量价依据}{3}{subsection.3.3}%
+\contentsline {section}{\numberline {4}方案 B · 宇树 S288 升级版}{4}{section.4}%
+\contentsline {subsection}{\numberline {4.1}为什么值得}{4}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}三面墙（必须解决）}{4}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}单台 BOM}{4}{subsection.4.3}%
+\contentsline {section}{\numberline {5}方案 C · Open Duck Mini v2（全开源硬件，最快整机）}{4}{section.5}%
+\contentsline {section}{\numberline {6}方案 D · 极简原尺寸版}{4}{section.6}%
+\contentsline {section}{\numberline {7}打板与制造（嘉立创，实查）}{4}{section.7}%
+\contentsline {section}{\numberline {8}装机与验证路线（摘要）}{5}{section.8}%
+\contentsline {section}{\numberline {9}风险登记}{5}{section.9}%
