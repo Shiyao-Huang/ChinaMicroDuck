@@ -158,7 +158,7 @@ import psutil
 # so FastAPI resolves handler type hints against MODULE globals — a
 # function-local `WebSocket` import makes the ws param unresolvable and every
 # connection is denied with HTTP 403 (cost an hour; leave these here).
-from fastapi import FastAPI, HTTPException, Request, WebSocket, WebSocketDisconnect
+from fastapi import UploadFile, File, FastAPI, HTTPException, Request, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.responses import FileResponse
@@ -2621,6 +2621,48 @@ def make_app(ducks: list[Duck]):
             st.job.stop()
 
     app = FastAPI(title="Duck lab", lifespan=lifespan)
+
+    # ---- 音乐上传 → 自动节拍检测 → 驱动 dance 编舞 ----
+    # POST /music  (multipart: file=mp3/wav) → 检拍 → beats.json + speakers 音轨
+    # GET  /music/beats → 当前拍点轴（供渲染器/DanceEnv 读取）
+    import shutil as _shutil
+    MUSIC_DIR = Path("/tmp/ducklab_music")
+    MUSIC_DIR.mkdir(exist_ok=True)
+
+    @app.post("/music")
+    async def music_upload(file: UploadFile = File(...)):
+        dest = MUSIC_DIR / ("song" + Path(file.filename or "song.mp3").suffix)
+        _shutil.copyfileobj(file.file, dest.open("wb"))
+        try:
+            import librosa as _librosa
+            y, sr = _librosa.load(str(dest))
+            tempo_arr, beat_frames = _librosa.beat.beat_track(y=y, sr=sr)
+            beat_times = _librosa.frames_to_time(beat_frames, sr=sr).astype(float).tolist()
+            tempo = np.atleast_1d(np.asarray(tempo_arr, dtype=float))[0]
+        except Exception as e:
+            raise HTTPException(500, f"beat detection failed: {e}")
+        axis = {"song": str(dest), "tempo": float(tempo),
+                "beat_times": beat_times}
+        (MUSIC_DIR / "beats.json").write_text(json.dumps(axis))
+        return {"ok": True, "tempo": axis["tempo"],
+                "beats": len(beat_times),
+                "first_beats": [round(t, 3) for t in beat_times[:6]],
+                "audio_url": "/music/audio"}
+
+    @app.get("/music/beats")
+    def music_beats():
+        f = MUSIC_DIR / "beats.json"
+        if not f.exists():
+            raise HTTPException(404, "no song uploaded yet — POST /music first")
+        return json.loads(f.read_text())
+
+    @app.get("/music/audio")
+    def music_audio():
+        f = MUSIC_DIR / "beats.json"
+        if not f.exists():
+            raise HTTPException(404, "no song uploaded")
+        song = json.loads(f.read_text())["song"]
+        return FileResponse(song, media_type="audio/mpeg")
     app.state.lab = st  # the roster/job the handlers close over, for tests
     app.add_middleware(GZipMiddleware, minimum_size=1024)
     # LOCAL origins only. This was allow_origins=["*"], which was harmless
